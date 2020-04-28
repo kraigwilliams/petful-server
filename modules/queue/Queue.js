@@ -30,6 +30,7 @@ class Queue {
 
 
 dequeue() {
+  
   //if the queue is empty, there is nothing to return
  if (this.first === null) {
      return;
@@ -42,14 +43,40 @@ dequeue() {
  }
  return node.value;
 }
+}
+  // show() {
+  //   // Return the next item in the queue.
+  // }
 
-  show() {
-    // Return the next item in the queue.
-  }
+  // all() {
+  //   // Return all items in the queue.
+  // }
 
-  all() {
-    // Return all items in the queue.
-  }
+  function peek(queue) {
+    if (queue.first) {
+        return queue.first.data;
+    }
+    return null;
 }
 
-module.exports = Queue
+function isEmpty(queue) {
+    return queue.first === null;
+}
+
+function display(queue) {
+    let result = [];
+    let curr = queue.first;
+    while (curr) {
+        result.push(curr.data)
+        curr = curr.next;
+    }
+    return result;
+}
+
+module.exports = {
+    Queue: Queue,
+    display: display,
+    isEmpty: isEmpty,
+    peek: peek
+}
+
